@@ -1,0 +1,1075 @@
+@use "../color";
+.MainMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .MainMobile {
+    display: grid;
+    width: 100vw;
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-top: 100px;
+    scroll-snap-type: y mandatory;
+
+    section {
+      scroll-snap-align: start;
+      width: 100%;
+      height: fit-content;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 8vh 1fr 0.5fr;
+      gap: 65px;
+
+      .box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0px;
+        position: relative;
+
+        img {
+          position: relative;
+          object-fit: contain;
+          width: 60%;
+        }
+
+        h1 {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .box2 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+
+      color: orange;
+
+      .siranLogo {
+        width: 95%;
+        height: 100%;
+        object-fit: contain;
+        position: relative;
+
+        img {
+          transform: translateX(-0px);
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+
+        &:before {
+          content: "Warum Geld verschenken...";
+          position: absolute;
+          display: flex;
+          color: transparent;
+          top: 102%;
+          width: 100%;
+          transform: translateX(0px);
+          justify-content: center;
+          font-size: 1.7rem;
+          font-weight: 600;
+          padding-top: 10px;
+          background-image: linear-gradient(
+            to right,
+            color.$brightCooper 10%,
+            color.$lightCooper
+          );
+
+          background-clip: text;
+          filter: drop-shadow(1px 1px 2px black) brightness(1.1);
+        }
+      }
+
+      /* dark */
+
+      .siranLogoDark {
+        width: 95%;
+        height: 100%;
+        object-fit: contain;
+        position: relative;
+
+        img {
+          transform: translateX(-0px);
+          width: 100%;
+          height: 100%;
+          position: relative;
+
+          filter: brightness(1.1) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.521));
+        }
+
+        &:before {
+          content: "Warum Geld verschenken...";
+          position: absolute;
+          display: flex;
+          color: transparent;
+          top: 102%;
+          width: 100%;
+          transform: translateX(0px);
+          justify-content: center;
+          font-size: 1.7rem;
+          font-weight: 600;
+          padding-top: 10px;
+          background-image: linear-gradient(
+            to right,
+            color.$brightCooper 10%,
+            color.$darkCooper
+          );
+
+          background-clip: text;
+          filter: drop-shadow(1px 4px 3px black);
+          transition: all 0.4s ease;
+        }
+      }
+
+      .TarifRechner {
+        position: relative;
+        width: 95%;
+        height: 100%;
+        background: #1414149d;
+        mix-blend-mode: multiply;
+        padding: 20px 12px;
+        border-radius: 15px;
+
+        box-shadow: -2px 12px 5px -5px rgba(0, 0, 0, 0.6);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 60px 60px 165px 75px 1fr;
+        gap: 13px;
+
+        &::before {
+          content: "Tarifrechner...";
+          position: absolute;
+          color: transparent;
+          font-weight: 600;
+          width: 100%;
+          top: -14px;
+          transform: translateX(-10px);
+          justify-content: center;
+          display: flex;
+          padding: 0px 15px;
+          font-size: 1.2rem;
+          background-image: linear-gradient(
+            to right,
+            color.$brightCooper 30%,
+            color.$darkCooper
+          );
+
+          background-clip: text;
+          filter: drop-shadow(1px 4px 3px black);
+        }
+
+        .CityInput {
+          padding: 15px 15px;
+          border-radius: 11px;
+          background: #141414;
+          box-shadow: 2px 2px 8px #0a0a0a, -2px -2px 8px #1e1e1e;
+          z-index: 10;
+        }
+
+        .kundentyp {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: color.$brightCooper;
+          padding: 5px 1px;
+          border-radius: 11px;
+          background: #141414;
+          box-shadow: 2px 2px 8px #0a0a0a, -2px -2px 8px #1e1e1e;
+          z-index: 11;
+
+          font-weight: 600;
+          position: relative;
+
+          &::before {
+            content: "Kundentyp...";
+            position: absolute;
+            color: color.$brightCooper;
+            opacity: 0.8;
+            top: -2px;
+            left: 10px;
+            filter: brightness(1.2) grayscale(0);
+
+            font-size: 12px;
+            font-weight: 400;
+          }
+
+          .kundenradio {
+            width: 100%;
+            transform: translateX(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            label {
+              width: 40%;
+            }
+          }
+        }
+
+        .produkttyp {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: color.$brightCooper;
+          padding: 15px 1px;
+          border-radius: 11px;
+          background: #141414;
+          box-shadow: 2px 2px 8px #0a0a0a, -2px -2px 8px #1e1e1e;
+          font-weight: 600;
+          position: relative;
+
+          &::before {
+            content: "Produkt...";
+            position: absolute;
+            color: color.$brightCooper;
+            top: -2px;
+            left: 10px;
+            filter: brightness(1.2) grayscale(0);
+            opacity: 0.8;
+
+            font-size: 12px;
+            font-weight: 400;
+          }
+
+          .produktradio {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 17px;
+            label {
+              width: 40%;
+            }
+          }
+        }
+
+        .kwhAuswahl {
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: 2fr 3fr;
+          padding: 15px 10px;
+          border-radius: 11px;
+          background: #141414;
+          box-shadow: 2px 2px 8px #0a0a0a, -2px -2px 8px #1e1e1e;
+          font-weight: 600;
+          position: relative;
+          gap: 10px;
+          transition: all 0.4s ease;
+
+          &::before {
+            content: "Personen in Haushalt...";
+            position: absolute;
+            color: color.$brightCooper;
+            top: -5px;
+            left: 10px;
+            filter: brightness(1.2) grayscale(0);
+            opacity: 0.8;
+            font-size: 12px;
+            font-weight: 400;
+          }
+
+          div {
+            /* border: 1px solid red; */
+          }
+
+          .personenAnzahl {
+            display: grid;
+            gap: 6px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            color: color.$brightCooper;
+            filter: brightness(1.1);
+            opacity: 0.9;
+
+            input {
+              display: none;
+            }
+
+            label {
+              border-radius: 7px;
+              background: #141414;
+              box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              display: flex;
+              gap: 3px;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              cursor: pointer;
+              border: #141414 2px solid;
+              transition: all 0.4s ease;
+              position: relative;
+
+              i {
+                text-shadow: 2px 2px 5px black;
+              }
+
+              &::before {
+                content: attr(data-person);
+                position: absolute;
+                font-size: 14px;
+                width: 130%;
+                opacity: 0;
+                transform: translateY(-20px);
+                top: -55%;
+                border-radius: 5px;
+                display: flex;
+                background-color: rgba(255, 255, 255, 0.671);
+                justify-content: center;
+                color: color.$darkCooper;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                z-index: 10;
+              }
+
+              &:hover::before {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+
+            input:checked + label {
+              box-shadow: inset 4px 5px 4px #0a0a0a, -4px -4px 4px #1e1e1e,
+                4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              border: color.$lightCooper 2px solid;
+
+              i {
+                text-shadow: 2px 2px 15px black;
+              }
+            }
+          }
+
+          .batteryFrame {
+            border-radius: 7px;
+            background: #141414;
+            box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 8px 8px;
+            position: relative;
+
+            &::before {
+              content: "Verbrauchsstufe...";
+              position: absolute;
+              color: color.$brightCooper;
+              top: -20px;
+              left: 10px;
+              filter: brightness(1.2) grayscale(0);
+              opacity: 0.8;
+              font-size: 12px;
+              font-weight: 400;
+            }
+
+            div {
+              /*   border: 1px solid violet; */
+            }
+            .battery {
+              display: flex;
+              padding: 4px 20px;
+              position: relative;
+              width: 100%;
+              height: 100%;
+
+              .Rahmen {
+                transform: translateX(-10px) translateY(1px);
+                border: 2px solid color.$brightCooper;
+                filter: drop-shadow(1px 3px 3px black);
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  bottom: calc(100% + 2.5px);
+
+                  width: 40%;
+                  height: 7px;
+                  border-radius: 3px 3px 0 0;
+                  background-color: color.$brightCooper;
+                }
+
+                .filling {
+                  height: 100%;
+                  width: 100%;
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 3px;
+                  position: relative;
+
+                  div {
+                    position: relative;
+                    background-image: linear-gradient(
+                      to top,
+                      color.$darkCooper,
+                      color.$brightCooper
+                    );
+                    height: 100%;
+                    width: 100%;
+
+                    border-radius: 6px;
+                    transition: all 0.4s ease;
+                    transition-delay: 0.4s;
+                  }
+                }
+              }
+            }
+            .range {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              left: -30px;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+
+              .rangeInput {
+                position: relative;
+                width: 50px;
+                height: 100%;
+                display: flex;
+
+                input {
+                  position: relative;
+                  width: 100px;
+                  height: 100%;
+                  transform: rotate(-90deg) translateY(-30px) translateX(-2px);
+                  outline: none;
+                  background-color: transparent;
+                  -webkit-appearance: none;
+                  cursor: pointer;
+                }
+
+                input[type="range"]::-webkit-slider-runnable-track {
+                  background-image: linear-gradient(
+                    to right,
+                    color.$lightCooper 30%,
+                    color.$brightCooper
+                  );
+                  box-shadow: 2px 1px 5px black;
+                  filter: grayscale(0.1) brightness(1);
+                  transition: all 0.3s ease;
+
+                  border-radius: 25px;
+                  width: 100%;
+                  height: 5.8px;
+                  cursor: pointer;
+                  appearance: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                  margin-top: -14.9px;
+                  width: 18px;
+                  min-height: 35px;
+                  background-image: linear-gradient(
+                    to left,
+                    color.$darkCooper 40%,
+                    color.$lightCooper
+                  );
+                  filter: brightness(1.1)
+                    drop-shadow(1px 1px 0.5px rgba(0, 0, 0, 0.61));
+                  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.623);
+                  border-radius: 2px;
+                  cursor: pointer;
+                  appearance: none;
+                  transition: all 0.3s ease;
+
+                  &:hover {
+                    filter: brightness(1.8)
+                      drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.623));
+                  }
+                }
+
+                input[type="range"]:active::-webkit-slider-runnable-track {
+                  background: color.$brightCooper;
+                  transition: all 0.3s ease;
+                }
+              }
+
+              .rangeTxt {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.4s ease-in-out;
+                transition-delay: 0.6;
+
+                div {
+                  position: absolute;
+                  left: 6px;
+                  top: 0;
+                  height: 20px;
+                  width: 70px;
+                  background-color: color.$brightCooper;
+                  display: flex;
+                  border-radius: 0 4px 4px 0;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    left: -8px;
+                    width: 14.3px;
+                    height: 14.3px;
+                    transform: rotate(45deg) translateY(2.55px)
+                      translateX(2.75px);
+                    background-color: color.$brightCooper;
+                  }
+
+                  &::after {
+                    content: attr(data-verbrauchrange);
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    color: color.$darkCooper;
+
+                    font-size: 13px;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .kwhAuswahlGas {
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: 2fr 3fr;
+          padding: 15px 10px;
+          border-radius: 11px;
+          background: #141414;
+          box-shadow: 2px 2px 8px #0a0a0a, -2px -2px 8px #1e1e1e;
+          font-weight: 600;
+          position: relative;
+          gap: 10px;
+          transition: all 0.4s ease;
+
+          &::before {
+            content: "kWh pro Jahr...";
+            position: absolute;
+            color: color.$brightCooper;
+            top: -5px;
+            left: 10px;
+            filter: brightness(1.2) grayscale(0);
+            opacity: 0.8;
+            font-size: 12px;
+            font-weight: 400;
+          }
+
+          div {
+            /* border: 1px solid red; */
+          }
+
+          .personenAnzahl2 {
+            display: grid;
+            gap: 6px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            color: color.$brightCooper;
+            filter: brightness(1.1);
+            opacity: 0.9;
+
+            input {
+              display: none;
+            }
+
+            label {
+              border-radius: 7px;
+              background: #141414;
+              box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              display: flex;
+              gap: 0px;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              cursor: pointer;
+              border: #141414 2px solid;
+              transition: all 0.4s ease;
+              position: relative;
+              perspective: 500px;
+
+              .FireIcon {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: orange;
+                transform: scale(1.2);
+                z-index: 7;
+              }
+
+              .FireIcon2 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #ed712a;
+                left: 6px;
+                transform: scale(1.15) translateY(-2px);
+                z-index: 6;
+              }
+
+              .FireIcon3 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #2aedd3b4;
+                left: -7px;
+                transform: scale(1.1) translateY(-3px);
+                z-index: 6;
+              }
+
+              &::before {
+                content: attr(data-person);
+                position: absolute;
+                font-size: 14px;
+                width: 130%;
+                opacity: 0;
+                transform: translateY(-20px);
+                top: -55%;
+                border-radius: 5px;
+                display: flex;
+                background-color: rgba(255, 255, 255, 0.671);
+                justify-content: center;
+                color: color.$darkCooper;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                z-index: 10;
+              }
+
+              &:hover::before {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+
+            .person4Gas {
+              border-radius: 7px;
+              background: #141414;
+              box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              display: flex;
+              gap: 0px;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              cursor: pointer;
+              border: #141414 2px solid;
+              transition: all 0.4s ease;
+              position: relative;
+              perspective: 500px;
+              padding-top: 5px;
+
+              .FireIcon4 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #84ddf3e3;
+                left: 0px;
+                transform: scale(1.4) translateY(-4px);
+                z-index: 5;
+              }
+            }
+
+            .person5Gas {
+              border-radius: 7px;
+              background: #141414;
+              box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              display: flex;
+              gap: 0px;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              cursor: pointer;
+              border: #141414 2px solid;
+              transition: all 0.4s ease;
+              position: relative;
+              perspective: 500px;
+              padding-top: 5px;
+
+              .FireIcon4 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #84ddf3e3;
+                left: 12px;
+                transform: scale(1.05) translateY(-4px);
+                z-index: 5;
+              }
+
+              .FireIcon5 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #6c80f3e3;
+                left: -12px;
+                transform: scale(1.05) translateY(-4px);
+                z-index: 5;
+              }
+            }
+
+            .person6Gas {
+              border-radius: 7px;
+              background: #141414;
+              box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              display: flex;
+              gap: 0px;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              cursor: pointer;
+              border: #141414 2px solid;
+              transition: all 0.4s ease;
+              position: relative;
+              perspective: 500px;
+              padding-top: 5px;
+
+              .FireIcon {
+                transform: translateY(2px) scale(1.2);
+              }
+
+              .FireIcon4 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #84ddf3e3;
+                left: 12px;
+                transform: scale(1.05) translateY(-4px);
+                z-index: 5;
+              }
+
+              .FireIcon5 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #6c80f3e3;
+                left: -12px;
+                transform: scale(1.05) translateY(-4px);
+                z-index: 5;
+              }
+
+              .FireIcon6 {
+                filter: drop-shadow(1px 1px 0.5px black);
+                stroke: rgba(0, 0, 0, 0.678);
+                position: absolute;
+                width: 100%;
+                color: #d0d3e6e3;
+                left: 1px;
+                transform: scale(1.6) translateY(-3px);
+                z-index: 5;
+              }
+            }
+
+            input:checked + label {
+              box-shadow: inset 4px 5px 4px #0a0a0a, -4px -4px 4px #1e1e1e,
+                4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+              border: color.$lightCooper 2px solid;
+
+              i {
+                text-shadow: 2px 2px 15px black;
+              }
+            }
+          }
+
+          .batteryFrame {
+            border-radius: 7px;
+            background: #141414;
+            box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 8px 8px;
+            position: relative;
+
+            &::before {
+              content: "Verbrauchsstufe...";
+              position: absolute;
+              color: color.$brightCooper;
+              top: -20px;
+              left: 10px;
+              filter: brightness(1.2) grayscale(0);
+              opacity: 0.8;
+              font-size: 12px;
+              font-weight: 400;
+            }
+
+            div {
+              /*   border: 1px solid violet; */
+            }
+            .FireBlock {
+              display: flex;
+              padding: 4px 20px;
+              position: relative;
+              width: 100%;
+              height: 100%;
+              align-items: flex-end;
+            }
+            .range {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              left: -30px;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+
+              .rangeInput {
+                position: relative;
+                width: 50px;
+                height: 100%;
+                display: flex;
+
+                input {
+                  position: relative;
+                  width: 100px;
+                  height: 100%;
+                  transform: rotate(-90deg) translateY(-30px) translateX(-2px);
+                  outline: none;
+                  background-color: transparent;
+                  -webkit-appearance: none;
+                  cursor: pointer;
+                }
+
+                input[type="range"]::-webkit-slider-runnable-track {
+                  background-image: linear-gradient(
+                    to right,
+                    color.$lightCooper 30%,
+                    color.$brightCooper
+                  );
+                  box-shadow: 2px 1px 5px black;
+                  filter: grayscale(0.1) brightness(1);
+                  transition: all 0.3s ease;
+
+                  border-radius: 25px;
+                  width: 100%;
+                  height: 5.8px;
+                  cursor: pointer;
+                  appearance: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                  margin-top: -14.9px;
+                  width: 18px;
+                  min-height: 35px;
+                  background-image: linear-gradient(
+                    to left,
+                    color.$darkCooper 40%,
+                    color.$lightCooper
+                  );
+                  filter: brightness(1.1)
+                    drop-shadow(1px 1px 0.5px rgba(0, 0, 0, 0.61));
+                  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.623);
+                  border-radius: 2px;
+                  cursor: pointer;
+                  appearance: none;
+                  transition: all 0.3s ease;
+
+                  &:hover {
+                    filter: brightness(1.8)
+                      drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.623));
+                  }
+                }
+
+                input[type="range"]:active::-webkit-slider-runnable-track {
+                  background: color.$brightCooper;
+                  transition: all 0.3s ease;
+                }
+              }
+
+              .rangeTxt {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.4s ease-in-out;
+                transition-delay: 0.6;
+
+                div {
+                  position: absolute;
+                  left: 6px;
+                  top: 0;
+                  height: 20px;
+                  width: 70px;
+                  background-color: color.$brightCooper;
+                  display: flex;
+                  border-radius: 0 4px 4px 0;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    left: -8px;
+                    width: 14.3px;
+                    height: 14.3px;
+                    transform: rotate(45deg) translateY(2.55px)
+                      translateX(2.75px);
+                    background-color: color.$brightCooper;
+                  }
+
+                  &::after {
+                    content: attr(data-verbrauchrange);
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    color: color.$darkCooper;
+
+                    font-size: 13px;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .kWhRange {
+          position: relative;
+          display: grid;
+          grid-template-columns: 3fr 160px;
+          border-radius: 7px;
+          background: #141414;
+          box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+
+          &::before {
+            content: "kWh Verbrauch...";
+            position: absolute;
+            color: color.$brightCooper;
+            opacity: 0.8;
+            top: -2px;
+            left: 10px;
+            filter: brightness(1.2) grayscale(0);
+
+            font-size: 12px;
+            font-weight: 400;
+          }
+
+          input {
+            position: relative;
+            width: 70%;
+            height: 100%;
+
+            outline: none;
+            background-color: transparent;
+            -webkit-appearance: none;
+            cursor: pointer;
+          }
+
+          input[type="range"]::-webkit-slider-runnable-track {
+            background-image: linear-gradient(
+              to right,
+              color.$lightCooper 30%,
+              color.$brightCooper
+            );
+            box-shadow: 2px 1px 5px black;
+            filter: grayscale(0.1) brightness(1);
+            transition: all 0.3s ease;
+
+            border-radius: 25px;
+            width: 100%;
+            height: 5.8px;
+            cursor: pointer;
+            appearance: none;
+          }
+
+          input[type="range"]::-webkit-slider-thumb {
+            position: relative;
+            margin-top: -14.9px;
+            width: 18px;
+            min-height: 35px;
+            background-image: linear-gradient(
+              to top,
+              color.$darkCooper 40%,
+              color.$lightCooper
+            );
+            filter: brightness(1.1)
+              drop-shadow(1px 1px 0.5px rgba(0, 0, 0, 0.61));
+            box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.623);
+            border-radius: 2px;
+            cursor: pointer;
+            appearance: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+              filter: brightness(1.8)
+                drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.623));
+            }
+
+            &::before {
+              content: "test";
+              position: absolute;
+              color: white;
+              width: 100%;
+            }
+          }
+
+          input[type="range"]:active::-webkit-slider-runnable-track {
+            background: color.$brightCooper;
+            transition: all 0.3s ease;
+          }
+
+          .kwhField {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-10px);
+            filter: drop-shadow(1px 1px 2px black);
+          }
+
+          .KwhRangeInput {
+            padding: 0 0 0 20px;
+          }
+        }
+        .btn {
+          padding: 10px 20px;
+
+          button {
+            opacity: 0.9;
+            box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+            background-image: linear-gradient(
+              to right,
+              #141414,
+              #141414,
+              white,
+              color.$lightCooper,
+              color.$darkCooper
+            );
+            background-size: 400%;
+            transition: all 0.5s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+              background-position: 100% 0%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1024 @@
+@use "color";
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  isolation: isolate;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0px;
+  isolation: isolate;
+  z-index: 15;
+  overflow-y: scroll;
+  color: white;
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #fff;
+    background-image: -webkit-linear-gradient(
+      top,
+      #e4f5fc 0%,
+      #bfe8f9 50%,
+      #9fd8ef 51%,
+      #2ab0ed 100%
+    );
+  }
+
+  footer {
+    background-color: crimson;
+    min-height: 50vh;
+    scroll-snap-align: start;
+    z-index: 10;
+  }
+
+  .FormularSection {
+    isolation: isolate;
+    scroll-snap-align: start;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    .CardFrame {
+      border: none;
+      padding-top: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      perspective: 1000px;
+      transition: all 0.5s ease;
+      gap: 20px;
+      padding: 10px 30px;
+      margin-top: 160px;
+      perspective: 1000px;
+      isolation: isolate;
+      position: relative;
+
+      .card {
+        transform-style: preserve-3d;
+        position: relative;
+        border: none;
+        min-width: 300px;
+        width: 330px;
+        height: 550px;
+        border-radius: 7px;
+        transform-style: preserve-3d;
+        border-bottom: color.$lightCooper 3px solid;
+        border-top: color.$lightCooper 2px solid;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.616) 10%);
+
+        background-image: repeating-radial-gradient(
+          #0000 0% 12%,
+          #b1b1b1 13% 26%
+        );
+        background-size: 30px 30px;
+        backdrop-filter: blur(10px);
+        position: relative;
+        box-shadow: 6px 12px 14px 0.5px #0a0a0a, -4px -4px 4px #0a0a0a83,
+          4px 5px 12px #0a0a0a, -4px -4px 4px 0.5px #0a0a0a91;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 40px 90px 90px 1fr 1fr 1fr;
+        gap: 2px;
+        transition: all 0.35s ease;
+        cursor: pointer;
+        transform: translate3d(0, 0, 0);
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.87);
+          mix-blend-mode: multiply;
+          transition: all 0.3s ease;
+          transition-delay: 0s;
+        }
+
+        &:hover::before {
+          content: "";
+          position: absolute;
+
+          width: 100%;
+          height: 100%;
+          background-color: #011400dc;
+          mix-blend-mode: multiply;
+          transition: all 0.5 ease;
+        }
+
+        &:hover {
+          border-top: 2px solid green;
+          border-bottom: 3px solid green;
+          transform: translate3d(0px, -10px, 0px);
+
+          .btnCard {
+            button {
+              background-position: 100% 0%;
+            }
+          }
+        }
+
+        .profileIcon {
+          top: 8px;
+          right: 10px;
+          position: absolute;
+          border: 2px solid solid;
+          isolation: isolate;
+
+          .strom,
+          .gas {
+            font-size: 35px;
+            text-shadow: 1px 2px 3px black;
+          }
+
+          .strom {
+            color: yellow;
+            isolation: isolate;
+          }
+          .gas {
+            color: orange;
+          }
+        }
+
+        .svglogo {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: color.$brightCooper;
+          font-size: 19.6px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          text-transform: capitalize;
+
+          svg {
+            object-fit: contain;
+            width: 130px;
+            height: 40px;
+            filter: drop-shadow(1px 2px 5px black);
+
+            path {
+              fill: color.$brightCooper;
+            }
+          }
+        }
+
+        span {
+          isolation: isolate;
+          display: flex;
+          text-align: center;
+          font-size: 16px;
+          justify-content: center;
+          color: #c96642;
+          filter: drop-shadow(1px 1px 3px black);
+          text-transform: capitalize;
+          display: flex;
+          flex-direction: column;
+
+          div {
+            color: white;
+            font-size: 13px;
+          }
+        }
+        .kwhkosten {
+          isolation: isolate;
+
+          padding: 5px 20px;
+
+          fieldset {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: 2px solid color.$lightCooper;
+            filter: drop-shadow(1px 1px 3px black);
+
+            legend {
+              color: color.$brightCooper;
+              font-size: 14px;
+
+              margin-left: 0px;
+              padding-left: 5px;
+              padding-right: 10px;
+            }
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.3fr;
+            padding: 5px 10px;
+            gap: 6px;
+
+            div {
+              transform: translateY(5px);
+              font-size: 18px;
+              font-weight: 400;
+              letter-spacing: 1px;
+              display: flex;
+              align-items: center;
+
+              color: white;
+
+              &:nth-child(3) {
+                color: color.$lightCooper;
+                filter: brightness(2);
+              }
+            }
+
+            .durch {
+              display: flex;
+              justify-content: center;
+            }
+
+            .MonatsPreis {
+              position: relative;
+              display: flex;
+              justify-content: flex-end;
+
+              &::before {
+                content: "pro Monat";
+                position: absolute;
+                top: -6px;
+                font-weight: 400;
+                font-size: 12px;
+                color: grey;
+                filter: brightness(1.4);
+              }
+            }
+
+            .JahresPreis {
+              position: relative;
+
+              &::before {
+                content: "pro Jahr";
+                position: absolute;
+                top: -6px;
+                font-weight: 400;
+                font-size: 12px;
+                color: grey;
+                filter: brightness(1.4);
+              }
+            }
+          }
+        }
+
+        .grundkosten {
+          isolation: isolate;
+
+          padding: 5px 20px;
+
+          fieldset {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: 2px solid color.$lightCooper;
+            filter: drop-shadow(1px 1px 3px black);
+
+            legend {
+              color: color.$brightCooper;
+              font-size: 14px;
+
+              margin-left: 0px;
+              padding-left: 5px;
+              padding-right: 10px;
+            }
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.3fr;
+            padding: 5px 10px;
+            gap: 6px;
+
+            div {
+              transform: translateY(5px);
+              font-size: 18px;
+              font-weight: 400;
+              letter-spacing: 1px;
+              display: flex;
+              align-items: center;
+
+              color: white;
+
+              &:nth-child(3) {
+                color: color.$lightCooper;
+                filter: brightness(2);
+              }
+            }
+
+            .durch {
+              display: flex;
+              justify-content: center;
+            }
+
+            .MonatsPreis {
+              position: relative;
+              display: flex;
+              justify-content: flex-end;
+
+              &::before {
+                content: "pro Monat";
+                position: absolute;
+                top: -6px;
+                font-weight: 400;
+                font-size: 12px;
+                color: grey;
+                filter: brightness(1.4);
+              }
+            }
+
+            .JahresPreis {
+              position: relative;
+
+              &::before {
+                content: "pro Jahr";
+                position: absolute;
+                top: -6px;
+                font-weight: 400;
+                font-size: 12px;
+                color: grey;
+                filter: brightness(1.4);
+              }
+            }
+          }
+        }
+        .Total {
+          color: white;
+          isolation: isolate;
+          padding: 5px 23px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+
+          .totalPrice {
+            font-size: 22px;
+            text-shadow: 1px 1px 3px black;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            &::before {
+              content: "Total Jahreskosten...";
+              position: absolute;
+              transform: translateY(-20px);
+              font-weight: 400;
+              width: 200%;
+              font-size: 14px;
+              color: color.$lightCooper;
+              filter: brightness(2);
+            }
+
+            &::after {
+              content: attr(data-mwst);
+              position: absolute;
+              width: 210px;
+
+              transform: translateY(20px);
+              font-weight: 400;
+              font-size: 14px;
+              color: color.$brightCooper;
+              filter: brightness(1);
+            }
+          }
+        }
+
+        .TotalMonat {
+          color: color.$brightCooper;
+          isolation: isolate;
+          display: flex;
+
+          h1 {
+            font-size: 42px;
+            font-weight: 400;
+            padding: 5px 23px;
+            position: relative;
+            width: 100%;
+
+            &::before {
+              content: attr(data-mwst);
+              color: color.$lightCooper;
+              filter: brightness(2);
+              font-size: 16px;
+              font-weight: 400;
+              position: absolute;
+              bottom: -10px;
+            }
+          }
+        }
+
+        .btnCard {
+          padding: 15px 20px;
+
+          button {
+            opacity: 0.9;
+            box-shadow: 4px 5px 12px #0a0a0a;
+            background-image: linear-gradient(
+              to right,
+              #141414,
+              #141414,
+              white,
+              #087c02dc,
+              #011400dc
+            );
+            background-size: 400%;
+            transition: all 0.5s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+              background-position: 100% 0%;
+            }
+          }
+        }
+      }
+    }
+
+    .Form {
+      /*  border: 2px solid violet; */
+      margin-top: 160px;
+      grid-column: span 2;
+
+      position: relative;
+      display: grid;
+      grid-template-columns: 400px 450px 1fr;
+      grid-template-rows: 70px auto;
+
+      .PersonalienFrame {
+        grid-column: span 12;
+        grid-row: span 1;
+      }
+
+      .PersonalienBlock {
+        display: grid;
+        grid-column: 1/2;
+        position: relative;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 0 10px;
+
+        h1 {
+          grid-column: span 1;
+          grid-row: 1/2;
+          color: color.$brightCooper;
+          letter-spacing: 1px;
+          position: relative;
+
+          &::before {
+            content: "Pflichtfelder markiert mit '*'";
+            position: absolute;
+            top: 60%;
+            color: white;
+            font-size: 12px;
+            font-weight: 400;
+          }
+        }
+
+        .AnredeField {
+          border: color.$lightCooper 2px solid;
+          filter: brightness(1.2);
+          grid-column: span 1;
+          grid-row: 2/3;
+          height: 65px;
+          padding-left: 10px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: -10px;
+
+          legend {
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: 13px;
+            filter: brightness(0.8);
+            color: color.$brightCooper;
+          }
+
+          &:hover {
+            border: color.$brightCooper 2px solid;
+          }
+        }
+
+        .Vorname {
+          grid-column: span 1;
+          grid-row: 3/4;
+        }
+
+        .Nachnamen {
+          grid-column: span 1;
+          grid-row: 4/5;
+        }
+
+        .Lieferdatum {
+          width: 100%;
+          transform: translateY(-10px);
+          isolation: isolate;
+          grid-column: 7/12;
+          grid-row: 5/7;
+        }
+
+        .Geburtsdatum {
+          width: 100%;
+          isolation: isolate;
+          grid-column: span 1;
+          grid-row: 5/6;
+          border: color.$lightCooper 2px solid;
+          filter: brightness(1.2);
+          height: 60px;
+          padding-left: 10px;
+          border-radius: 10px;
+          display: flex;
+          margin-top: 0px;
+          transform: translateY(-6px);
+          position: relative;
+
+          legend {
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: 11px;
+            filter: brightness(0.8);
+            color: color.$brightCooper;
+          }
+
+          &:hover {
+            border: color.$brightCooper 2px solid;
+          }
+
+          input {
+            font-size: 16px;
+            width: 100%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: color.$brightCooper;
+
+            &::-webkit-calendar-picker-indicator {
+              filter: invert(1);
+              transform: scale(1.5) translateX(-10px);
+              cursor: pointer;
+            }
+          }
+        }
+
+        .Telefonnummer {
+          width: 100%;
+
+          isolation: isolate;
+          grid-column: span 1;
+          grid-row: 6/7;
+        }
+        .Email {
+          grid-column: span 1;
+          grid-row: 7/8;
+          width: 100%;
+
+          isolation: isolate;
+        }
+
+        .Strasse {
+          grid-column: span 1;
+          grid-row: 8/9;
+          position: relative;
+
+          .strasseNr {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 5px;
+
+            .strassenFeld {
+              z-index: 8;
+            }
+            .HausNrFeld {
+              grid-column: span 1;
+              position: relative;
+              top: 1px;
+              z-index: 10;
+
+              div {
+                height: 56px;
+              }
+            }
+          }
+        }
+
+        .Ortschaft {
+          grid-column: 1/6;
+          width: 100%;
+          grid-row: 18/20;
+          position: relative;
+          top: -10px;
+        }
+
+        .VorversorgerAuswahl {
+          grid-column: 13/18;
+          grid-row: 2/3;
+          width: 100%;
+          position: relative;
+          top: 8px;
+          isolation: isolate;
+        }
+
+        .VorversorgerRechnung {
+          grid-column: 13/18;
+          grid-row: 4/5;
+          width: 100%;
+          position: relative;
+
+          isolation: isolate;
+        }
+
+        .VorversorgerRechnungCheckbox {
+          grid-column: 13/18;
+          grid-row: 5/7;
+          width: 100%;
+          position: relative;
+          left: 1px;
+          isolation: isolate;
+        }
+
+        .Zahlungsweise {
+          grid-column: 7/12;
+          grid-row: 7/12;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          isolation: isolate;
+          top: -20px;
+        }
+
+        .BankkontoIBAN {
+          grid-column: 7/12;
+          grid-row: 10/12;
+          width: 100%;
+          position: relative;
+          top: 5px;
+          isolation: isolate;
+          animation: iban 0.4s ease;
+        }
+
+        .Bankinfos {
+          grid-column: 7/13;
+          grid-row: 12/19;
+          width: 100%;
+          position: relative;
+
+          isolation: isolate;
+          animation: iban 0.4s ease;
+
+          div {
+            display: flex;
+            justify-content: space-between;
+
+            div:nth-child(1) {
+              width: 45%;
+              font-size: 14px;
+              color: #0092d1;
+              filter: brightness(1.4);
+            }
+
+            div:nth-child(2) {
+              width: 55%;
+              font-size: 14px;
+              color: #0092d1;
+              filter: brightness(1.8);
+            }
+          }
+        }
+
+        .LieferType {
+          border: #0092d1 2px solid;
+          filter: brightness(1.4);
+          grid-column: 7/12;
+          grid-row: 2/5;
+          height: 80%;
+          padding-left: 10px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+
+          legend {
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: 13px;
+            color: #0092d1;
+          }
+        }
+
+        .allowance {
+          width: 100%;
+          transform: translateY(0px);
+          isolation: isolate;
+          grid-column: 13/18;
+          grid-row: 10/18;
+          text-align: justify;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        .BtnPersonal2 {
+          grid-column: 2/6;
+          grid-row: 18/20;
+          height: 80%;
+        }
+
+        .signAni {
+          grid-column: 1/9;
+          grid-row: 8/11;
+        }
+
+        .Title {
+          grid-column: 2/9;
+          grid-row: 2/4;
+          color: #0092d1;
+          filter: brightness(1.4);
+          display: flex;
+          margin-top: 7px;
+          gap: 20px;
+
+          i {
+            font-size: 35px;
+
+            color: #5cc7f5;
+            transform: translateY(5px);
+            padding: 5px 10px;
+            padding-right: 5px;
+
+            background-color: rgba(255, 255, 255, 0.151);
+            filter: brightness(0.86);
+            backdrop-filter: blur(4px);
+            border-bottom: #5cc7f5 2px solid;
+          }
+
+          div {
+            font-size: 22px;
+          }
+        }
+
+        .SignaturePad {
+          grid-column: 2/10;
+          grid-row: 6/14;
+          position: relative;
+
+          &::before {
+            content: attr(data-alert);
+            position: absolute;
+            color: #0092d1;
+            filter: brightness(1.4);
+            top: -10%;
+            left: 2px;
+          }
+
+          .Pad {
+            display: flex;
+
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.719);
+            height: 60%;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+
+            background-color: white;
+            border-radius: 10px;
+            border: rgb(26, 160, 218) 4px solid;
+
+            img {
+              position: absolute;
+              object-fit: contain;
+              transform: translateX(80px) translateY(5px) scale(1.5);
+              width: 280px;
+              height: 120px;
+            }
+          }
+
+          .signEraser {
+            color: #0092d1;
+            padding: 2px 10px;
+            position: absolute;
+            bottom: calc(40% + 3px);
+            right: 2px;
+            z-index: 10;
+            pointer-events: all;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 22px;
+
+            &:hover {
+              color: rgb(156, 6, 6);
+            }
+
+            &:active {
+              color: magenta;
+            }
+          }
+        }
+
+        .signListe {
+          grid-column: 2/10;
+          grid-row: 12/19;
+          color: rgb(182, 178, 178);
+          text-align: justify;
+        }
+      }
+
+      .Form2 {
+        display: grid;
+        grid-column: 2/3;
+        position: relative;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 0 20px;
+        padding-top: 70px;
+
+        .LieferType {
+          border: color.$lightCooper 2px solid;
+          transform: translateY(-8px);
+
+          padding-left: 10px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+
+          legend {
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: 12px;
+            color: color.$brightCooper;
+          }
+        }
+
+        .VorversorgerAuswahl {
+        }
+
+        .Zahlungsweise {
+          position: relative;
+
+          .SEPA {
+            position: relative;
+            display: flex;
+
+            img {
+              width: 100px;
+              height: 30px;
+              object-fit: contain;
+              filter: drop-shadow(1px 2px 5px black) brightness(3);
+            }
+          }
+        }
+        .BankkontoIBAN {
+          position: relative;
+        }
+
+        .Bankinfos {
+          font-size: 15px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 0px;
+          grid-row: span 2;
+
+          width: 100%;
+          position: relative;
+
+          isolation: isolate;
+          animation: iban 0.4s ease;
+
+          div {
+            display: flex;
+            justify-content: space-between;
+
+            div:nth-child(1) {
+              width: 45%;
+              font-size: 14px;
+              color: color.$lightCooper;
+              filter: brightness(2);
+            }
+
+            div:nth-child(2) {
+              width: 55%;
+              font-size: 14px;
+              color: color.$brightCooper;
+              filter: brightness(1);
+            }
+          }
+        }
+
+        .Lieferdatum {
+          width: 100%;
+          isolation: isolate;
+          grid-column: span 1;
+
+          border: color.$lightCooper 2px solid;
+          filter: brightness(1.2);
+          height: 60px;
+          padding-left: 10px;
+          border-radius: 10px;
+          display: flex;
+          margin-top: 0px;
+          transform: translateY(-6px);
+          position: relative;
+
+          legend {
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: 11px;
+            filter: brightness(0.8);
+            color: color.$brightCooper;
+          }
+
+          &:hover {
+            border: color.$brightCooper 2px solid;
+          }
+
+          input {
+            font-size: 16px;
+            width: 100%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: color.$brightCooper;
+
+            &::-webkit-calendar-picker-indicator {
+              filter: invert(1);
+              transform: scale(1.5) translateX(-10px);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .Form3 {
+        display: grid;
+
+        position: relative;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 0 40px;
+        padding-top: 70px;
+
+        .allowance {
+          width: 100%;
+          transform: translateY(0px);
+          isolation: isolate;
+          grid-row: span 4;
+          text-align: justify;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        .BtnPersonal {
+          grid-row: 8/9;
+          padding: 10px 20px;
+          border-radius: 10px;
+          opacity: 0.9;
+          box-shadow: 4px 5px 12px #0a0a0a, -4px -4px 4px #1e1e1e;
+          background-image: linear-gradient(
+            to right,
+            #141414,
+            #141414,
+            white,
+            color.$lightCooper,
+            color.$darkCooper
+          );
+          background-size: 400%;
+          transition: all 0.5s ease;
+          font-weight: 600;
+          letter-spacing: 1px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            background-position: 100% 0%;
+          }
+        }
+      }
+    }
+  }
+}

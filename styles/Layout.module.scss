@@ -1,0 +1,997 @@
+@use "color";
+.Layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/trai.jpg");
+  position: fixed;
+  overflow-y: scroll;
+  transition: all 0.4s ease;
+
+  &::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    mix-blend-mode: multiply;
+    background-image: linear-gradient(to bottom, #5e0a03 25%, #ffa38277);
+    transition: all 0.4s ease;
+  }
+
+  .mobilNav,
+  .mobilNavDark {
+    display: none;
+  }
+
+  .MainNav {
+    z-index: 50;
+    width: calc(100% - 40px);
+    min-height: 100px;
+    height: 100px;
+    color: white;
+    display: grid;
+    grid-template-columns: 110px 1fr 80px;
+    position: absolute;
+    isolation: isolate;
+    background-color: white;
+    border-bottom: 4px solid color.$brightCooper;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.479);
+    transition: all 0.4s ease;
+
+    &::before {
+      content: "";
+      display: flex;
+      border-radius: 10px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.322);
+    }
+
+    .logo {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5px;
+
+      img {
+        position: relative;
+        width: 110px;
+        object-fit: contain;
+        height: 85px;
+        filter: brightness(1.35) grayscale(0.2)
+          drop-shadow(1px 1.5px 2px rgba(0, 0, 0, 0.493));
+      }
+    }
+
+    .menubox {
+      grid-column: 3/4;
+      filter: brightness(1.1);
+      &:hover {
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        gap: 25px;
+
+        padding-right: 50px;
+
+        a {
+          width: auto;
+          height: 80px;
+          padding: 0 20px;
+          border: none;
+          display: flex;
+          align-items: center;
+
+          text-decoration: none;
+          text-transform: capitalize;
+
+          .logotext {
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: none;
+            color: transparent;
+            background-image: linear-gradient(
+              to right,
+              color.$brightCooper 20%,
+              color.$darkCooper
+            );
+
+            background-clip: text;
+            filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)) brightness(1);
+          }
+
+          li {
+            color: color.$brightCooper;
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0);
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.521);
+
+            &::before {
+              position: absolute;
+              top: 100%;
+              content: "";
+              width: 0%;
+              height: 4px;
+              border-radius: 11px;
+              background-color: color.$lightCooper;
+              transition: all 0.5s ease-out;
+              pointer-events: none;
+            }
+
+            &:hover::before {
+              width: 100%;
+            }
+          }
+
+          .produktLink {
+            &::after {
+              content: "...bald verfügbar";
+              position: absolute;
+              width: 150%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 80%;
+              bottom: 100%;
+              border-radius: 10px;
+              font-size: 13px;
+              background-color: #5e0a03;
+              color: white;
+              opacity: 0;
+              transition: all 0.3s ease;
+              transform: translateX(-20px);
+              text-transform: lowercase;
+            }
+
+            &:hover::after {
+              opacity: 1;
+              transform: translateX(0px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* DarkMode */
+  .MainNavDark {
+    z-index: 50;
+    width: calc(100% - 40px);
+    min-height: 100px;
+    height: 100px;
+    color: white;
+    display: grid;
+    grid-template-columns: 110px 1fr 2fr;
+    position: absolute;
+    isolation: isolate;
+    border-bottom: 4px solid color.$brightCooper;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 0.5px rgba(20, 20, 20, 0.226);
+    transition: all 0.5s ease;
+
+    &::before {
+      content: "";
+      display: flex;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(26, 26, 26, 0.699);
+    }
+
+    .logo {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5px;
+      transition: all 0.5s ease;
+
+      img {
+        position: relative;
+        width: 110px;
+        object-fit: contain;
+        height: 85px;
+        filter: brightness(1.6) grayscale(0.25)
+          drop-shadow(1px 5px 4px #ffa3829a);
+        transition: all 0.5s ease;
+      }
+    }
+
+    .menubox {
+      transition: all 0.5s ease;
+      grid-column: 3/4;
+      filter: brightness(1.1);
+      &:hover {
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        gap: 25px;
+
+        padding-right: 50px;
+
+        a {
+          width: auto;
+          height: 80px;
+          padding: 0 20px;
+          border: none;
+          display: flex;
+          align-items: center;
+
+          text-decoration: none;
+          text-transform: capitalize;
+
+          .logotext {
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: none;
+            color: transparent;
+            background-image: linear-gradient(
+              to right,
+              color.$brightCooper 20%,
+              color.$darkCooper
+            );
+
+            background-clip: text;
+            filter: drop-shadow(1px 4px 3px black);
+          }
+
+          li {
+            color: color.$brightCooper;
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px black;
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+
+            &::before {
+              position: absolute;
+              top: 100%;
+              content: "";
+              width: 0%;
+              height: 4px;
+              border-radius: 11px;
+              background-color: white;
+              transition: all 0.5s ease-out;
+              pointer-events: none;
+            }
+
+            &:hover::before {
+              width: 100%;
+            }
+          }
+
+          .produktLink {
+            &::after {
+              content: "...bald verfügbar";
+              position: absolute;
+              width: 150%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 80%;
+              bottom: 100%;
+              border-radius: 10px;
+              font-size: 13px;
+              background-color: #5e0a03;
+              color: white;
+              opacity: 0;
+              transition: all 0.3s ease;
+              transform: translateX(-20px);
+              text-transform: lowercase;
+            }
+
+            &:hover::after {
+              opacity: 1;
+              transform: translateX(0px);
+            }
+          }
+        }
+      }
+    }
+  }
+  /*  */
+
+  .childrenFrame {
+    isolation: isolate;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    perspective: 1000px;
+  }
+}
+
+/* Darkmode */
+
+.LayoutDark {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/trai.jpg");
+  position: fixed;
+  overflow-y: scroll;
+  transition: all 0.5s ease;
+
+  &::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.979) 20%,
+      rgba(0, 0, 0, 0.89)
+    );
+    mix-blend-mode: multiply;
+    transition: all 0.5s ease;
+  }
+
+  .mobilNav,
+  .mobilNavDark {
+    display: none;
+  }
+
+  .MainNav {
+    z-index: 50;
+    width: calc(100% - 40px);
+    min-height: 100px;
+    height: 100px;
+    color: white;
+    display: grid;
+    grid-template-columns: 110px 1fr 80px;
+    position: absolute;
+    isolation: isolate;
+    border-bottom: 4px solid color.$brightCooper;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 0.5px rgba(0, 0, 0, 0.226);
+
+    &::before {
+      content: "";
+      display: flex;
+      border-radius: 10px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.322);
+    }
+
+    .logo {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5px;
+
+      img {
+        position: relative;
+        width: 110px;
+        object-fit: contain;
+        height: 85px;
+        filter: brightness(1.35) grayscale(0.2)
+          drop-shadow(1px 1.5px 2px rgba(0, 0, 0, 0.493));
+      }
+    }
+
+    .menubox {
+      grid-column: 3/4;
+      filter: brightness(1.1);
+      &:hover {
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        gap: 25px;
+
+        padding-right: 50px;
+
+        a {
+          width: auto;
+          height: 80px;
+          padding: 0 20px;
+          border: none;
+          display: flex;
+          align-items: center;
+
+          text-decoration: none;
+          text-transform: capitalize;
+
+          .logotext {
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: none;
+            color: transparent;
+            background-image: linear-gradient(
+              to right,
+              color.$brightCooper 20%,
+              color.$darkCooper
+            );
+
+            background-clip: text;
+            filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)) brightness(1);
+          }
+
+          li {
+            color: color.$brightCooper;
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0);
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+
+            &::before {
+              position: absolute;
+              top: 100%;
+              content: "";
+              width: 0%;
+              height: 4px;
+              border-radius: 11px;
+              background-color: color.$lightCooper;
+              transition: all 0.5s ease-out;
+              pointer-events: none;
+            }
+
+            &:hover::before {
+              width: 100%;
+            }
+          }
+
+          .produktLink {
+            &::after {
+              content: "...bald verfügbar";
+              position: absolute;
+              width: 150%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 80%;
+              bottom: 100%;
+              border-radius: 10px;
+              font-size: 13px;
+              background-color: #5e0a03;
+              color: white;
+              opacity: 0;
+              transition: all 0.3s ease;
+              transform: translateX(-20px);
+              text-transform: lowercase;
+            }
+
+            &:hover::after {
+              opacity: 1;
+              transform: translateX(0px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* DarkMode */
+  .MainNavDark {
+    z-index: 50;
+    width: calc(100% - 40px);
+    min-height: 100px;
+    height: 100px;
+    color: white;
+    display: grid;
+    grid-template-columns: 110px 1fr 2fr;
+    position: absolute;
+    isolation: isolate;
+    border-bottom: 4px solid color.$brightCooper;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 0.5px rgba(20, 20, 20, 0.226);
+    transition: all 0.5s ease;
+
+    &::before {
+      content: "";
+      display: flex;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(26, 26, 26, 0.699);
+    }
+
+    .logo {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5px;
+      transition: all 0.5s ease;
+
+      img {
+        position: relative;
+        width: 110px;
+        object-fit: contain;
+        height: 85px;
+        filter: brightness(1.6) grayscale(0.25)
+          drop-shadow(1px 5px 4px #ffa3829a);
+        transition: all 0.5s ease;
+      }
+    }
+
+    .menubox {
+      transition: all 0.5s ease;
+      grid-column: 3/4;
+      filter: brightness(1.1);
+      &:hover {
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        gap: 25px;
+
+        padding-right: 50px;
+
+        a {
+          width: auto;
+          height: 80px;
+          padding: 0 20px;
+          border: none;
+          display: flex;
+          align-items: center;
+
+          text-decoration: none;
+          text-transform: capitalize;
+
+          .logotext {
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: none;
+            color: transparent;
+            background-image: linear-gradient(
+              to right,
+              color.$brightCooper 20%,
+              color.$darkCooper
+            );
+
+            background-clip: text;
+            filter: drop-shadow(1px 4px 3px black);
+          }
+
+          li {
+            color: color.$brightCooper;
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px black;
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+
+            &::before {
+              position: absolute;
+              top: 100%;
+              content: "";
+              width: 0%;
+              height: 4px;
+              border-radius: 11px;
+              background-color: white;
+              transition: all 0.5s ease-out;
+              pointer-events: none;
+            }
+
+            &:hover::before {
+              width: 100%;
+            }
+          }
+
+          .produktLink {
+            &::after {
+              content: "...bald verfügbar";
+              position: absolute;
+              width: 150%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 80%;
+              bottom: 100%;
+              border-radius: 10px;
+              font-size: 13px;
+              background-color: #5e0a03;
+              color: white;
+              opacity: 0;
+              transition: all 0.3s ease;
+              transform: translateX(-20px);
+              text-transform: lowercase;
+            }
+
+            &:hover::after {
+              opacity: 1;
+              transform: translateX(0px);
+            }
+          }
+        }
+      }
+    }
+  }
+  /*  */
+
+  .childrenFrame {
+    isolation: isolate;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .Layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/trai.jpg");
+    position: fixed;
+    overflow-y: scroll;
+    transition: all 0.4s ease;
+
+    &::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+
+      background-image: linear-gradient(to bottom, #5e0a03, #ffa38277);
+      mix-blend-mode: multiply;
+      transition: all 0.4s ease;
+    }
+
+    .MainNav,
+    .MainNavDark {
+      display: none;
+    }
+
+    .mobilNav {
+      display: grid;
+      z-index: 50;
+      width: 100vw;
+      min-height: 80px;
+      height: 80px;
+      color: white;
+      display: grid;
+      grid-template-columns: 3fr 0.8fr;
+      grid-template-rows: 1fr;
+      position: absolute;
+      isolation: isolate;
+      backdrop-filter: blur(10px);
+      transition: all 0.4 ease;
+      transition-delay: 0.1s;
+
+      .logo {
+        position: relative;
+        transition: all 0.4 ease;
+        transition-delay: 0.1s;
+
+        img {
+          position: relative;
+          aspect-ratio: 16/9;
+          display: flex;
+
+          object-fit: contain;
+          height: 100px;
+          filter: brightness(1.25) grayscale(0.23)
+            drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.493));
+        }
+      }
+
+      .modeSelecter {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .Hamburger {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .HamDiv {
+          width: 55%;
+          aspect-ratio: 1/1;
+          border: color.$lightCooper 3px solid;
+          border-radius: 7px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 5px;
+          gap: 5px;
+
+          .line {
+            height: 4px;
+            aspect-ratio: 16/9;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.788);
+          }
+        }
+      }
+    }
+
+    /* Dark Mode */
+    .mobilNavDark {
+      display: grid;
+      z-index: 50;
+      width: 100vw;
+      min-height: 80px;
+      height: 80px;
+      color: white;
+      display: grid;
+      grid-template-columns: 3fr 0.8fr;
+      grid-template-rows: 1fr;
+      position: fixed;
+      isolation: isolate;
+      transition: all 0.4 ease;
+      transition-delay: 0.1s;
+      backdrop-filter: blur(10px);
+
+      .logo {
+        position: relative;
+        transition: all 0.4 ease;
+        transition-delay: 0.1s;
+        img {
+          position: relative;
+          aspect-ratio: 4/3;
+          display: flex;
+
+          object-fit: contain;
+          height: 80px;
+          filter: brightness(1.6) grayscale(0.25)
+            drop-shadow(1px 5px 4px #ffa3829a);
+        }
+      }
+
+      .modeSelecter {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .Hamburger {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .HamDiv {
+          width: 55%;
+          aspect-ratio: 1/1;
+          border: color.$lightCooper 3px solid;
+          border-radius: 7px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 5px;
+          gap: 5px;
+
+          .line {
+            height: 4px;
+            aspect-ratio: 16/9;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.788);
+          }
+        }
+      }
+    }
+    /*  */
+    .Menu {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      z-index: 5;
+      backdrop-filter: blur(8px);
+    }
+  }
+
+  /* Darkmode */
+
+  .LayoutDark {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/trai.jpg");
+    position: fixed;
+    overflow-y: scroll;
+    transition: all 0.4s ease;
+
+    &::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      transition: all 0.4s ease;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.979) 20%,
+        rgba(0, 0, 0, 0.89)
+      );
+      mix-blend-mode: multiply;
+    }
+
+    .MainNav,
+    .MainNavDark {
+      display: none;
+    }
+
+    .mobilNav {
+      display: grid;
+      z-index: 50;
+      width: 100vw;
+      min-height: 80px;
+      height: 80px;
+      color: white;
+      display: grid;
+      grid-template-columns: 3fr 0.8fr;
+      grid-template-rows: 1fr;
+      position: absolute;
+      isolation: isolate;
+      backdrop-filter: blur(10px);
+      transition: all 0.4 ease;
+      transition-delay: 0.1s;
+
+      .logo {
+        position: relative;
+        transition: all 0.4 ease;
+        transition-delay: 0.1s;
+        img {
+          position: relative;
+          aspect-ratio: 4/3;
+          display: flex;
+
+          object-fit: contain;
+          height: 80px;
+          filter: brightness(1.05) grayscale(0.05)
+            drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.493));
+        }
+      }
+
+      .modeSelecter {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .Hamburger {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .HamDiv {
+          width: 55%;
+          aspect-ratio: 1/1;
+          border: color.$lightCooper 3px solid;
+          border-radius: 7px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 5px;
+          gap: 5px;
+
+          .line {
+            height: 4px;
+            aspect-ratio: 16/9;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.788);
+          }
+        }
+      }
+    }
+
+    /* Dark Mode */
+    .mobilNavDark {
+      display: grid;
+      z-index: 50;
+      width: 100vw;
+      min-height: 80px;
+      height: 80px;
+      color: white;
+      display: grid;
+      grid-template-columns: 3fr 0.8fr;
+      grid-template-rows: 1fr;
+      position: absolute;
+      isolation: isolate;
+      backdrop-filter: blur(10px);
+      transition: all 0.4 ease;
+      transition-delay: 0.1s;
+      .modeSelecter {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .logo {
+        position: relative;
+        transition: all 0.4 ease;
+        transition-delay: 0.1s;
+        img {
+          position: relative;
+          aspect-ratio: 4/3;
+          display: flex;
+
+          object-fit: contain;
+          height: 80px;
+          filter: brightness(1.6) grayscale(0.25)
+            drop-shadow(1px 5px 4px #ffa3829a);
+        }
+      }
+
+      .Hamburger {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .HamDiv {
+          width: 55%;
+          aspect-ratio: 1/1;
+          border: color.$lightCooper 3px solid;
+          border-radius: 7px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 5px;
+          gap: 5px;
+
+          .line {
+            height: 4px;
+            aspect-ratio: 16/9;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.788);
+          }
+        }
+      }
+    }
+    /*  */
+    .Menu {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      z-index: 5;
+      backdrop-filter: blur(8px);
+    }
+  }
+}
